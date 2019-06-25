@@ -7,7 +7,7 @@ module Warclight
     extend Blacklight::Solr::Document
 
     def replay_link
-      time_travel_base_url = 'http://timetravel.mementoweb.org/api/json/'
+      time_travel_base_url = 'http://webarchiveportal.nli.ie:8080/all/timemap/json'
       time_travel_request_url = time_travel_base_url + first(:wayback_date).to_s + '/' + first(:url).to_s
       time_travel_request = URI(time_travel_request_url)
       time_travel_response = Net::HTTP.get(time_travel_request)
