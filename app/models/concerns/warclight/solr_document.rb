@@ -13,8 +13,9 @@ module Warclight
       time_travel_response = Net::HTTP.get(time_travel_request)
       if time_travel_response.present?
         time_travel_response_json = JSON.parse(time_travel_response)
-        replay_url = time_travel_response_json['mementos']['closest']['uri'][0]
-        replay_url_link = '<a href="' + "#{replay_url}" '" target="_blank">'"#{replay_url}"'</a> 🔗'
+        replay_url = time_travel_response_json['url']
+        replay_date = time_travel_response_json['timestamp']
+        replay_url_link = '<a href="' + "http://webarchiveportal:8080/all/#{replay_date}/#{replay_url}/" '" target="_blank">'"#{replay_url}"'</a> 🔗'
         replay_url_link.html_safe
       else
         replay_url = 'Not Available.'
