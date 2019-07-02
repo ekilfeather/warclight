@@ -15,7 +15,7 @@ module Warclight
         time_travel_response_json = JSON.parse(time_travel_response)
         replay_url = time_travel_response_json['url']
         replay_date = time_travel_response_json['timestamp']
-        replay_url_link = "<a href=\"#{APP_CONFIG['replay_base_url']}#{replay_date}/#{replay_url}\" target=\"_blank\">#{replay_url}\"</a>"
+        replay_url_link = "<a href=\"#{APP_CONFIG['replay_base_url']}#{replay_date}/#{replay_url}\" target=\"_blank\">#{replay_url}</a>"
         replay_url_link.html_safe
       else
         replay_url = 'Not Available.'
