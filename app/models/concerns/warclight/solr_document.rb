@@ -8,7 +8,7 @@ module Warclight
 
     def replay_link
       time_travel_base_url = APP_CONFIG['time_travel_base_url']
-      time_travel_request_url = time_travel_base_url + first(:wayback_date).to_s + '/' + first(:url).to_s
+      time_travel_request_url = time_travel_base_url + first(:url).to_s
       time_travel_request = URI(time_travel_request_url)
       time_travel_response = Net::HTTP.get(time_travel_request)
       if time_travel_response.present?
